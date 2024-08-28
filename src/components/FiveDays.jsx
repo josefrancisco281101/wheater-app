@@ -26,7 +26,7 @@ const mapDescriptionToState = (description) => {
   return "Clear";
 };
 
-const FiveDays = ({ onCitySelect, selectedCity }) => {
+const FiveDays = ({ selectedCity }) => {
   const [forecastData, setForecastData] = useState([]);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ const FiveDays = ({ onCitySelect, selectedCity }) => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center mt-4 ">
+    <div className="flex justify-center mt-2 mb-[150px] gap-3 ">
       {forecastData.map((day, index) => {
         const weatherDescription = day.weather[0].description;
         const weatherState = mapDescriptionToState(weatherDescription);
@@ -81,9 +81,11 @@ const FiveDays = ({ onCitySelect, selectedCity }) => {
               />
             </div>
 
-            <div className="mt-2">
-              <h3 className="text-sm ">{weatherDescription}</h3>
-              <p className="text-sm mt-2">{Math.round(day.main.temp)}°C</p>
+            <div className="mt-2 flex gap-2">
+              <p className="text-sm mt-2">{Math.round(day.main.temp_max)}°C</p>
+              <p className="text-sm mt-2 opacity-50 text-center ">
+                {Math.round(day.main.temp_min)}°C
+              </p>
             </div>
           </div>
         );
