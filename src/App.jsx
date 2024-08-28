@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import CurrentDefault from "./components/CurrentDafault";
 import FiveDays from "./components/FiveDays";
+import Details from "./components/Details";
 
 const App = () => {
   const [selectedCity, setSelectedCity] = useState("London");
@@ -18,8 +19,13 @@ const App = () => {
         />
       </div>
 
-      <div className="flex  h-[70%] w-[75%] justify-center bg-[#100e1d]">
-        <FiveDays selectedCity={selectedCity} />
+      <div className="flex flex-col h-screen w-[75%] bg-[#100e1d] items-center">
+        <div className="flex flex-col h-[70%] w-[75%] justify-center bg-[#100e1d]">
+          <FiveDays selectedCity={selectedCity} />
+          <div className="">
+            <Details selectedCity={selectedCity} />
+          </div>
+        </div>
       </div>
     </div>
   );
