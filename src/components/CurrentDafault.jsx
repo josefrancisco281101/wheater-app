@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+// CurrentDefault.js
+import React, { useState } from "react";
 import Search from "./Search";
-
-const API_KEY = "ee9f0e9a792c840e961da85a9d78a840";
+import useWeather from "../hooks/useWeather";
 
 const stateOptions = [
   { state: "HeavyCloud", img: "/HeavyCloud.png" },
@@ -29,31 +29,12 @@ const mapDescriptionToState = (description) => {
 
 const CurrentDefault = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const [selectedCity, setSelectedCity] = useState("London");
-  const [locationData, setLocationData] = useState(null);
-
-  useEffect(() => {
-    fetchWeatherByCity(selectedCity);
-  }, []);
-
-  const fetchWeatherByCity = (city) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => setLocationData(data))
-      .catch((error) => console.error("Error al obtener la ubicación:", error));
-  };
-
-  const fetchWeatherByLocation = (lat, lon) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        setLocationData(data);
-        setSelectedCity(data);
-      })
-      .catch((error) => console.error("Error al obtener el clima:", error));
-  };
+  const {
+    locationData,
+    fetchWeatherByCity,
+    fetchWeatherByLocation,
+    setSelectedCity,
+  } = useWeather("London");
 
   const handleGetLocation = () => {
     if (navigator.geolocation) {
