@@ -62,7 +62,7 @@ const FiveDays = ({ selectedCity }) => {
         return (
           <div
             key={index}
-            className="bg-[#1e213a] text-white p-4 m-2 rounded-md w-[120px] text-center flex flex-col justify-between items-center mt-[60px]"
+            className="bg-[#1e213a] text-white p-10 m-2 rounded-md w-[120px] text-center flex flex-col justify-between items-center mt-[60px]"
           >
             <div>
               <h3 className="text-sm">

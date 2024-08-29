@@ -11,7 +11,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen ]">
+    <div className="flex h-screen w-screen ] ">
       <div className="justify-between bg-[#1e213a] h-screen w-[350px] text-white ">
         <CurrentDefault
           onCitySelect={handleCityChange}
