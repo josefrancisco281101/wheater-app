@@ -60,34 +60,40 @@ const FiveDays = ({ selectedCity }) => {
         )?.img;
 
         return (
-          <div
-            key={index}
-            className="bg-[#1e213a] text-white p-10 m-2 rounded-md w-[120px] text-center flex flex-col justify-between items-center mt-[60px]"
-          >
-            <div>
-              <h3 className="text-sm">
-                {new Date(day.dt * 1000).toLocaleDateString("en-US", {
-                  weekday: "short",
-                  day: "numeric",
-                  month: "short",
-                })}
-              </h3>
-            </div>
-            <div className="flex justify-center items-center">
-              <img
-                src={weatherImage}
-                alt={weatherDescription}
-                className="mx-auto mt-2"
-              />
-            </div>
+          <>
+            <div
+              className="
+              text-white mt-20 
+            "
+            >
+              <div
+                key={index}
+                className="bg-[#1e213a]  pt-4 px-5 mx-2  w-[120px] h-40 max-h-40 text-center  "
+              >
+                <h3 className="text-sm">
+                  {new Date(day.dt * 1000).toLocaleDateString("en-US", {
+                    weekday: "short",
+                    day: "numeric",
+                    month: "short",
+                  })}
+                </h3>
 
-            <div className="mt-2 flex gap-2">
-              <p className="text-sm mt-2">{Math.round(day.main.temp_max)}°C</p>
-              <p className="text-sm mt-2 opacity-50 text-center ">
-                {Math.round(day.main.temp_min)}°C
-              </p>
+                <img
+                  src={weatherImage}
+                  alt={weatherDescription}
+                  className="mt-2 pr-1 "
+                />
+                <div className="flex justify-between mt-4">
+                  <p className="text-sm mt-2">
+                    {Math.round(day.main.temp_max)}°C
+                  </p>
+                  <p className="text-sm mt-2 opacity-50 text-center ">
+                    {Math.round(day.main.temp_min)}°C
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+          </>
         );
       })}
     </div>

@@ -11,7 +11,7 @@ const App = () => {
   };
 
   return (
-    <div className="flex h-screen w-screen ] ">
+    <div className="flex h-screen w-screen  ">
       <div className="justify-between bg-[#1e213a] h-screen w-[350px] text-white ">
         <CurrentDefault
           onCitySelect={handleCityChange}
@@ -19,10 +19,10 @@ const App = () => {
         />
       </div>
 
-      <div className="flex flex-col h-screen w-[75%] bg-[#100e1d] items-center">
-        <div className="flex flex-col h-[70%] w-[75%] justify-center bg-[#100e1d]">
+      <div className="flex flex-col h-screen  w-screen bg-[#100e1d] items-center">
+        <div className="flex flex-col h-full w-[74%] justify-center ">
           <FiveDays selectedCity={selectedCity} />
-          <div className="">
+          <div className="   w-full">
             <Details selectedCity={selectedCity} />
           </div>
         </div>
