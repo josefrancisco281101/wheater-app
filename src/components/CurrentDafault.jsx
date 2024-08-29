@@ -124,17 +124,17 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
               </div>
             </label>
             <div className="flex flex-col justify-center items-center">
-              <div className="flex mt-6 ">
+              <div className="flex mt-6 relative justify-center items-center">
                 <figure className="relative">
                   <img
                     src="/Cloud-background.png"
                     alt=""
-                    className="w-full h-auto opacity-30"
+                    className="w-full h-auto opacity-30 "
                     style={{ filter: "invert(50%) brightness(70%)" }}
                   />
                 </figure>
 
-                <section className="absolute inset-20 flex justify-center items-center w-[120px] h-20 mt-12 ml-8">
+                <section className="absolute inset-0 flex justify-center items-center">
                   {weatherIcon && (
                     <img src={weatherIcon} alt={weatherDescription} />
                   )}
