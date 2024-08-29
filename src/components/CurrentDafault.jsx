@@ -27,16 +27,16 @@ const mapDescriptionToState = (description) => {
   return "Clear";
 };
 
-const CurrentDefault = ({ onCitySelect, selectedCity }) => {
+const CurrentDefault = ({ onCitySelect, selectedCity, units, toggleUnits }) => {
   const [showSearch, setShowSearch] = useState(false);
   const [locationData, setLocationData] = useState(null);
 
   useEffect(() => {
     fetchWeatherByCity(selectedCity);
-  }, [selectedCity]);
+  }, [selectedCity, units]);
 
   const fetchWeatherByCity = (city) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => setLocationData(data))
@@ -44,7 +44,7 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
   };
 
   const fetchWeatherByLocation = (lat, lon) => {
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=${units}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -75,6 +75,8 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
     setShowSearch(false);
   };
 
+  const getUnitSymbol = () => (units === "metric" ? "°C" : "°F");
+
   if (!locationData) return <p>Loading...</p>;
 
   const temperature = locationData.main.temp;
@@ -92,7 +94,7 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
   )?.img;
 
   return (
-    <div className="ml-3">
+    <div className="ml-3 h-full w-full overflow-hidden">
       {showSearch ? (
         <Search
           onClose={() => setShowSearch(false)}
@@ -100,7 +102,7 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
         />
       ) : (
         <>
-          <div>
+          <div className="flex flex-col h-full">
             <label htmlFor="search" className="">
               <div className="flex justify-between mx-2 text-white ">
                 <input
@@ -123,8 +125,8 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
                 </button>
               </div>
             </label>
-            <div className="flex flex-col justify-center items-center">
-              <div className="flex mt-6 relative justify-center items-center">
+            <div className="flex flex-col justify-center items-center ">
+              <div className="flex mt-4 relative justify-center items-center flex-grow">
                 <figure className="relative">
                   <img
                     src="/Cloud-background.png"
@@ -134,33 +136,56 @@ const CurrentDefault = ({ onCitySelect, selectedCity }) => {
                   />
                 </figure>
 
-                <section className="absolute inset-0 flex justify-center items-center">
+                <section className="absolute inset-0 flex justify-center items-center ">
                   {weatherIcon && (
-                    <img src={weatherIcon} alt={weatherDescription} />
+                    <img
+                      src={weatherIcon}
+                      alt={weatherDescription}
+                      className="w-40"
+                    />
                   )}
                 </section>
               </div>
 
-              <section>
-                <h2 className="text-6xl mt-10 ml-3">
-                  {temperature} <span className="text-[#88869d]">°C</span>
+              <section className="flex flex-col justify-center items-center">
+                <h2 className="text-6xl mt-8 ml-3">
+                  {temperature}
+                  <span className="text-[#88869d]">{getUnitSymbol()}</span>
                 </h2>
+                <h3 className="text-3xl capitalize mt-4 mb-4 text-[#88869d] ">
+                  {weatherDescription}
+                </h3>
               </section>
-              <h3 className="text-2xl capitalize mt-[60px] text-[#88869d] ml-3">
-                {weatherDescription}
-              </h3>
 
-              <span className="block mt-20 text-[#88869d] ml-3">
-                Today - {date}
-              </span>
-              <span className="flex mt-2 justify-between text-[#88869d] ml-3">
-                <img src="/ubicacion.png" alt="" className="w-7" />
-                {location}
-              </span>
+              <div className="mt-auto text-center mb-6">
+                <span className="block text-[#88869d]">{`Today - ${date}`}</span>
+                <div className="flex justify-center items-center text-[#88869d]">
+                  <img src="/ubicacion.png" alt="" className="w-7 mr-2" />
+                  {location}
+                </div>
+              </div>
             </div>
           </div>
         </>
       )}
+      <div className="flex justify-end text-white gap-2 mt-3 mx-2">
+        <button
+          className={`bg-[#e7e7eb] p-[4px] rounded-full ${
+            units === "metric" ? "active" : ""
+          }`}
+          onClick={() => toggleUnits("metric")}
+        >
+          °C
+        </button>
+        <button
+          className={`bg-[#e7e7eb] p-[4px] rounded-full ${
+            units === "imperial" ? "active" : ""
+          }`}
+          onClick={() => toggleUnits("imperial")}
+        >
+          °F
+        </button>
+      </div>
     </div>
   );
 };

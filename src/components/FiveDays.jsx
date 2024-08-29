@@ -26,17 +26,18 @@ const mapDescriptionToState = (description) => {
   return "Clear";
 };
 
-const FiveDays = ({ selectedCity }) => {
+const FiveDays = ({ selectedCity, units, toggleUnits }) => {
   const [forecastData, setForecastData] = useState([]);
+  const [selectedButton, setSelectedButton] = useState("metric");
 
   useEffect(() => {
     if (selectedCity) {
       fetchFiveDayForecast(selectedCity);
     }
-  }, [selectedCity]);
+  }, [selectedCity, units]);
 
   const fetchFiveDayForecast = (city) => {
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=${units}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -50,26 +51,48 @@ const FiveDays = ({ selectedCity }) => {
       );
   };
 
-  return (
-    <div className="flex justify-center mt-2 mb-[150px] gap-3 ">
-      {forecastData.map((day, index) => {
-        const weatherDescription = day.weather[0].description;
-        const weatherState = mapDescriptionToState(weatherDescription);
-        const weatherImage = stateOptions.find(
-          (option) => option.state === weatherState
-        )?.img;
+  const getUnitSymbol = () => (units === "metric" ? "°C" : "°F");
 
-        return (
-          <>
-            <div
-              className="
-              text-white mt-20 
-            "
-            >
-              <div
-                key={index}
-                className="bg-[#1e213a]  pt-4 px-5 mx-2  w-[120px] h-40 max-h-40 text-center  "
-              >
+  const handleButtonClick = (unit) => {
+    toggleUnits(unit);
+    setSelectedButton(unit);
+  };
+
+  return (
+    <div className="bg-[#100e1d]">
+      <div className="flex justify-end color-white text-white text-center gap-2 mt-3 mx-2">
+        <button
+          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${
+            selectedButton === "metric"
+              ? "text-[#100e1d] bg-[#e7e7eb]"
+              : "text-white bg-[#585676]"
+          }`}
+          onClick={() => handleButtonClick("metric")}
+        >
+          °C
+        </button>
+        <button
+          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${
+            selectedButton === "imperial"
+              ? "text-[#100e1d] bg-[#e7e7eb]"
+              : "text-white bg-[#585676]"
+          }`}
+          onClick={() => handleButtonClick("imperial")}
+        >
+          °F
+        </button>
+      </div>
+      <div className="flex justify-center mb-8 items-center gap-2 sm:gap-0">
+        {forecastData.map((day, index) => {
+          const weatherDescription = day.weather[0].description;
+          const weatherState = mapDescriptionToState(weatherDescription);
+          const weatherImage = stateOptions.find(
+            (option) => option.state === weatherState
+          )?.img;
+
+          return (
+            <div key={index} className="text-white mt-8">
+              <div className="bg-[#1e213a] pt-4 px-5 mx-2 w-[120px] h-40 max-h-40 text-center">
                 <h3 className="text-sm">
                   {new Date(day.dt * 1000).toLocaleDateString("en-US", {
                     weekday: "short",
@@ -77,25 +100,26 @@ const FiveDays = ({ selectedCity }) => {
                     month: "short",
                   })}
                 </h3>
-
                 <img
                   src={weatherImage}
                   alt={weatherDescription}
-                  className="mt-2 pr-1 "
+                  className="mt-1 pr-1 max-h-[60px]"
                 />
-                <div className="flex justify-between mt-4">
+                <div className="flex justify-between mt-4 text-center  ">
                   <p className="text-sm mt-2">
-                    {Math.round(day.main.temp_max)}°C
+                    {Math.round(day.main.temp_max)}
+                    {getUnitSymbol()}
                   </p>
-                  <p className="text-sm mt-2 opacity-50 text-center ">
-                    {Math.round(day.main.temp_min)}°C
+                  <p className="text-sm mt-2 opacity-50 text-center">
+                    {Math.round(day.main.temp_min)}
+                    {getUnitSymbol()}
                   </p>
                 </div>
               </div>
             </div>
-          </>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 };
