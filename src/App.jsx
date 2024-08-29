@@ -15,8 +15,8 @@ const App = () => {
   };
 
   return (
-    <div className="  bg-[#100e1d] flex flex-col sm:flex-row h-screen w-screen">
-      <div className=" bg-[#1e213a] w-full sm:w-[30%] text-white sm:block  ">
+    <div className="  bg-[#100e1d] flex flex-col sm:flex-row h-screen w-screen ">
+      <div className=" bg-[#1e213a] w-full sm:w-[30%] text-white sm:block md:block ">
         <CurrentDefault
           onCitySelect={handleCityChange}
           selectedCity={selectedCity}

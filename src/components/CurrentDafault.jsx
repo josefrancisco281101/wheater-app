@@ -168,24 +168,6 @@ const CurrentDefault = ({ onCitySelect, selectedCity, units, toggleUnits }) => {
           </div>
         </>
       )}
-      <div className="flex justify-end text-white gap-2 mt-3 mx-2">
-        <button
-          className={`bg-[#e7e7eb] p-[4px] rounded-full ${
-            units === "metric" ? "active" : ""
-          }`}
-          onClick={() => toggleUnits("metric")}
-        >
-          °C
-        </button>
-        <button
-          className={`bg-[#e7e7eb] p-[4px] rounded-full ${
-            units === "imperial" ? "active" : ""
-          }`}
-          onClick={() => toggleUnits("imperial")}
-        >
-          °F
-        </button>
-      </div>
     </div>
   );
 };
