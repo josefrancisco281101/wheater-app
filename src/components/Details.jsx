@@ -50,80 +50,79 @@ const Details = ({ selectedCity }) => {
 
   return (
     <>
-      <div className="mx-6 bg-[#100e1d]">
-        <div className="text-white mb-4 text-center flex justify-between  ">
-          <div className="bg-[#1e213a] p-4 px-5 pb-8 w-[290px] ">
-            <h4>Wind Status</h4>
-            <div className="flex justify-center mt-2 items-center text-2xl">
-              <div
-                className="text-4xl font-bold relative"
-                style={{ top: "-4px" }}
-              >
-                {windSpeed}
-              </div>
-              <span>mph</span>
+      <h2 className="pt-20 md:pt-5 bg-[#100e1d] text-[#dad9de] text-start px-8 text-2xl ">
+        Today's Hightlights
+      </h2>
+      <div className="flex flex-wrap justify-center items-center gap-6 bg-[#100e1d] p-6 ">
+        <div className="bg-[#1e213a] p-4 px-5 pb-6 w-[290px] md:w-[250px] h-[180px] md:h-[150px] text-white text-center">
+          <h4>Wind Status</h4>
+          <div className="flex justify-center mt-2 items-center text-2xl">
+            <div
+              className="text-4xl font-bold relative"
+              style={{ top: "-4px" }}
+            >
+              {windSpeed}
             </div>
-            <div className="flex justify-center mt-4">
-              <img
-                className="w-[24px] transform"
-                src="/brujula-norte.png"
-                alt="Wind Direction"
-                style={{ transform: `rotate(${windDirection}deg)` }}
-              />
-              <h3 className="ml-2">{windDirectionAbbr}</h3>
-            </div>
+            <span>mph</span>
           </div>
-
-          <div className="bg-[#1e213a] p-4 px-5 pb-8 w-[290px]">
-            <h4>Humidity</h4>
-            <div className="flex justify-center mt-2 items-center text-2xl">
-              <div
-                className="text-4xl font-bold relative"
-                style={{ top: "-4px" }}
-              >
-                {humidity}
-              </div>
-              <span>%</span>
-            </div>
-            <div className="flex justify-between mt-4">
-              <span>0</span>
-              <span>50</span>
-              <span>100</span>
-            </div>
-            <div className="w-full bg-white h-2 rounded-lg">
-              <div
-                className="bg-[#ffec65] h-2 rounded-lg"
-                style={{ width: `${humidity}%` }}
-              ></div>
-              <span className="flex justify-end opacity-70">%</span>
-            </div>
+          <div className="flex justify-center mt-4 items-center">
+            <img
+              className="w-[24px] transform"
+              src="/brujula-norte.png"
+              alt="Wind Direction"
+              style={{ transform: `rotate(${windDirection}deg)` }}
+            />
+            <h3 className="ml-2">{windDirectionAbbr}</h3>
           </div>
         </div>
-        <div className="text-white  text-center flex justify-between ">
-          <div className="bg-[#1e213a] p-4 px-5 pb-8 w-[290px] mb-3">
-            <h4>Visibility</h4>
-            <div className="flex justify-center mt-2 items-center text-2xl ">
-              <div
-                className="text-4xl font-bold relative"
-                style={{ top: "-4px" }}
-              >
-                {visibility}
-              </div>
-              <span>miles</span>
-            </div>
-          </div>
 
-          <div className="bg-[#1e213a] p-4 px-5 pb-8 w-[290px] mb-3 ">
-            <h4>Air Pressure</h4>
-            <div className="flex justify-center mt-2 items-center text-2xl">
-              <div
-                className="text-4xl font-bold relative"
-                style={{ top: "-4px" }}
-              >
-                {pressure}
-              </div>
-              <span>mb</span>
+        <div className="bg-[#1e213a] p-4 px-5 pb-6 w-[290px] md:w-[250px] h-[180px] md:h-[150px] text-white text-center">
+          <h4>Humidity</h4>
+          <div className="flex justify-center mt-2 items-center text-2xl">
+            <div
+              className="text-4xl font-bold relative"
+              style={{ top: "-4px" }}
+            >
+              {humidity}
             </div>
+            <span>%</span>
+          </div>
+          <div className="flex justify-between mt-4">
+            <span>0</span>
+            <span>50</span>
+            <span>100</span>
+          </div>
+          <div className="w-full bg-white h-2 rounded-lg">
+            <div
+              className="bg-[#ffec65] h-2 rounded-lg"
+              style={{ width: `${humidity}%` }}
+            ></div>
+          </div>
+        </div>
+
+        <div className="bg-[#1e213a] p-4 px-5 pb-8 w-[290px] md:w-[250px] h-[140px] md:h-[120px] text-white text-center">
+          <h4>Visibility</h4>
+          <div className="flex justify-center mt-2 items-center text-2xl">
+            <div
+              className="text-4xl font-bold relative"
+              style={{ top: "-4px" }}
+            >
+              {visibility}
+            </div>
+            <span>miles</span>
+          </div>
+        </div>
+
+        <div className="bg-[#1e213a] p-4 px-5 pb-8  w-[290px] md:w-[250px] h-[140px] md:h-[120px] text-white text-center">
+          <h4>Air Pressure</h4>
+          <div className="flex justify-center mt-2 items-center text-2xl">
+            <div
+              className="text-4xl font-bold relative"
+              style={{ top: "-4px" }}
+            >
+              {pressure}
+            </div>
+            <span>mb</span>
           </div>
         </div>
       </div>

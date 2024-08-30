@@ -13,10 +13,9 @@ const App = () => {
   const toggleUnits = (newUnits) => {
     setUnits(newUnits);
   };
-
   return (
-    <div className="  bg-[#100e1d] flex flex-col sm:flex-row h-screen w-screen ">
-      <div className=" bg-[#1e213a] w-full sm:w-[30%] text-white sm:block md:block ">
+    <div className="bg-[#100e1d] block md:flex h-screen w-screen overflow-x-hidden md:overflow-hidden">
+      <div className="bg-[#1e213a] w-full md:w-[30%] text-white">
         <CurrentDefault
           onCitySelect={handleCityChange}
           selectedCity={selectedCity}
@@ -25,14 +24,14 @@ const App = () => {
         />
       </div>
 
-      <div className="  flex h-full w-2/3 justify-center ">
-        <div className=" ">
+      <div className="flex w-full justify-center">
+        <div className="w-full md:w-[70%] ">
           <FiveDays
             selectedCity={selectedCity}
             units={units}
             toggleUnits={toggleUnits}
           />
-          <div className=" sm:block ">
+          <div className="">
             <Details selectedCity={selectedCity} />
           </div>
         </div>

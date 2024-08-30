@@ -59,10 +59,10 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
   };
 
   return (
-    <div className="bg-[#100e1d]">
-      <div className="flex justify-end color-white text-white text-center gap-2 mt-3 mx-2">
+    <div className="bg-[#100e1d] block">
+      <div className="flex justify-end color-white text-white text-center gap-2  mx-4 pt-4">
         <button
-          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${
+          className={`w-10 h-10 rounded-full items-center justify-center text-xl ${
             selectedButton === "metric"
               ? "text-[#100e1d] bg-[#e7e7eb]"
               : "text-white bg-[#585676]"
@@ -72,7 +72,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
           °C
         </button>
         <button
-          className={`w-10 h-10 rounded-full flex items-center justify-center text-xl ${
+          className={`w-10 h-10 rounded-full items-center justify-center text-xl ${
             selectedButton === "imperial"
               ? "text-[#100e1d] bg-[#e7e7eb]"
               : "text-white bg-[#585676]"
@@ -82,7 +82,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
           °F
         </button>
       </div>
-      <div className="flex justify-center mb-8 items-center gap-2 sm:gap-0">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 justify-center items-center gap-4 mx-20 md:mx-4">
         {forecastData.map((day, index) => {
           const weatherDescription = day.weather[0].description;
           const weatherState = mapDescriptionToState(weatherDescription);
@@ -91,7 +91,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
           )?.img;
 
           return (
-            <div key={index} className="text-white mt-8">
+            <div key={index} className="text-white mt-8 flex justify-center">
               <div className="bg-[#1e213a] pt-4 px-5 mx-2 w-[120px] h-40 max-h-40 text-center">
                 <h3 className="text-sm">
                   {new Date(day.dt * 1000).toLocaleDateString("en-US", {
@@ -105,7 +105,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
                   alt={weatherDescription}
                   className="mt-1 pr-1 max-h-[60px]"
                 />
-                <div className="flex justify-between mt-4 text-center  ">
+                <div className="flex justify-between mt-4 text-center">
                   <p className="text-sm mt-2">
                     {Math.round(day.main.temp_max)}
                     {getUnitSymbol()}

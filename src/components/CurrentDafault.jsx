@@ -94,7 +94,7 @@ const CurrentDefault = ({ onCitySelect, selectedCity, units, toggleUnits }) => {
   )?.img;
 
   return (
-    <div className="ml-3 h-full w-full overflow-hidden">
+    <div className="ml-3 h-full w-full ">
       {showSearch ? (
         <Search
           onClose={() => setShowSearch(false)}
