@@ -148,18 +148,18 @@ const CurrentDefault = ({ onCitySelect, selectedCity, units, toggleUnits }) => {
               </div>
 
               <section className="flex flex-col justify-center items-center">
-                <h2 className="text-6xl mt-8 ml-3">
+                <h2 className="text-6xl mt-8 ml-[12px] xl:ml-3 ">
                   {temperature}
                   <span className="text-[#88869d]">{getUnitSymbol()}</span>
                 </h2>
-                <h3 className="text-3xl capitalize mt-4 mb-4 text-[#88869d] ">
+                <h3 className="text-3xl capitalize mt-6 mb-4 text-[#88869d] sm:px-[5px] ">
                   {weatherDescription}
                 </h3>
               </section>
 
-              <div className="mt-auto text-center mb-6">
+              <div className="mt-8 text-center mb-6">
                 <span className="block text-[#88869d]">{`Today - ${date}`}</span>
-                <div className="flex justify-center items-center text-[#88869d]">
+                <div className="flex justify-center items-center text-[#88869d] mt-4">
                   <img src="/ubicacion.png" alt="" className="w-7 mr-2" />
                   {location}
                 </div>

@@ -60,7 +60,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
 
   return (
     <div className="bg-[#100e1d] block">
-      <div className="flex justify-end color-white text-white text-center gap-2  mx-4 pt-4">
+      <div className="flex justify-end color-white text-white text-center gap-2  mx-4 pt-2">
         <button
           className={`w-10 h-10 rounded-full items-center justify-center text-xl ${
             selectedButton === "metric"
@@ -91,7 +91,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
           )?.img;
 
           return (
-            <div key={index} className="text-white mt-8 flex justify-center">
+            <div key={index} className="text-white mt-5 flex justify-center">
               <div className="bg-[#1e213a] pt-4 px-5 mx-2 w-[120px] h-40 max-h-40 text-center">
                 <h3 className="text-sm">
                   {new Date(day.dt * 1000).toLocaleDateString("en-US", {
@@ -105,7 +105,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
                   alt={weatherDescription}
                   className="mt-1 pr-1 max-h-[60px]"
                 />
-                <div className="flex justify-between mt-4 text-center">
+                <div className="flex justify-between mt-4 text-center ">
                   <p className="text-sm mt-2">
                     {Math.round(day.main.temp_max)}
                     {getUnitSymbol()}
