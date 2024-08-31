@@ -109,7 +109,7 @@ const CurrentDefault = ({ onCitySelect, selectedCity, units, toggleUnits }) => {
                   type="search"
                   id="search"
                   placeholder="Search for places"
-                  className="bg-[#6e707a] text-white text-center mt-8"
+                  className="bg-[#6e707a] text-white text-center mt-8 "
                   onClick={() => setShowSearch(true)}
                 />
                 <button
@@ -148,11 +148,11 @@ const CurrentDefault = ({ onCitySelect, selectedCity, units, toggleUnits }) => {
               </div>
 
               <section className="flex flex-col justify-center items-center">
-                <h2 className="text-6xl mt-8 ml-[12px] xl:ml-3 ">
+                <h2 className="text-4xl xl:text-6xl mt-8 ml-[12px] xl:ml-3 ">
                   {temperature}
                   <span className="text-[#88869d]">{getUnitSymbol()}</span>
                 </h2>
-                <h3 className="text-3xl capitalize mt-6 mb-4 text-[#88869d] sm:px-[5px] ">
+                <h3 className="text-2xl xl:text-3xl capitalize mt-6 mb-4 text-[#88869d] sm:px-[5px] ">
                   {weatherDescription}
                 </h3>
               </section>

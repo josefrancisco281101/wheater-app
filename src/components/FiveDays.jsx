@@ -82,7 +82,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
           °F
         </button>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 justify-center items-center gap-4 mx-20 md:mx-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 justify-center items-center gap-4  sm:mx-4 md:mx-0 ">
         {forecastData.map((day, index) => {
           const weatherDescription = day.weather[0].description;
           const weatherState = mapDescriptionToState(weatherDescription);
@@ -91,8 +91,8 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
           )?.img;
 
           return (
-            <div key={index} className="text-white mt-5 flex justify-center">
-              <div className="bg-[#1e213a] pt-4 px-5 mx-2 w-[120px] h-40 max-h-40 text-center">
+            <div key={index} className="text-white mt-5 flex justify-center ">
+              <div className="bg-[#1e213a] pt-4 px-5 mx-2 w-[120px]  h-40 max-h-40 text-center  ">
                 <h3 className="text-sm">
                   {new Date(day.dt * 1000).toLocaleDateString("en-US", {
                     weekday: "short",
@@ -103,7 +103,7 @@ const FiveDays = ({ selectedCity, units, toggleUnits }) => {
                 <img
                   src={weatherImage}
                   alt={weatherDescription}
-                  className="mt-1 pr-1 max-h-[60px]"
+                  className="mt-1 pr-1 max-h-[40px]"
                 />
                 <div className="flex justify-between mt-4 text-center ">
                   <p className="text-sm mt-2">

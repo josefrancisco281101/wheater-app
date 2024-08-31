@@ -50,10 +50,10 @@ const Details = ({ selectedCity }) => {
 
   return (
     <>
-      <h2 className="pt-20 md:pt-6 bg-[#100e1d] text-[#dad9de] text-start px-8 text-xl ">
+      <h2 className="pt-20 md:pt-6 bg-[#100e1d] text-[#dad9de] text-start px-8 text-xl  ">
         Today's Hightlights
       </h2>
-      <div className="flex flex-wrap justify-center items-center gap-6 bg-[#100e1d] px-6 pt-2">
+      <div className="flex flex-wrap  justify-center items-center gap-6 bg-[#100e1d] px-6 pt-2">
         <div className="bg-[#1e213a] p-4 px-5 pb-6 w-[290px] md:w-[250px] h-[180px] md:h-[150px] text-white text-center">
           <h4>Wind Status</h4>
           <div className="flex justify-center mt-2 items-center text-2xl">

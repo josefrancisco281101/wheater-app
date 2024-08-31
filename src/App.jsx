@@ -14,7 +14,7 @@ const App = () => {
     setUnits(newUnits);
   };
   return (
-    <div className="bg-[#100e1d] block md:flex h-screen w-screen overflow-x-hidden md:overflow-hidden">
+    <div className="bg-[#100e1d] block md:flex h-screen w-screen overflow-auto  lg:overflow-hidden">
       <div className="bg-[#1e213a] w-full md:w-[30%] text-white">
         <CurrentDefault
           onCitySelect={handleCityChange}
