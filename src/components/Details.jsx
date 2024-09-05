@@ -54,16 +54,16 @@ const Details = ({ selectedCity }) => {
         Today's Hightlights
       </h2>
       <div className="flex flex-wrap  justify-center items-center gap-6 bg-[#100e1d] px-6 pt-2">
-        <div className="bg-[#1e213a] p-4 px-5 pb-6 w-[290px] md:w-[250px] h-[180px] md:h-[150px] text-white text-center">
+        <div className="bg-[#1e213a] p-4 px-5 pb-6 w-[290px]  h-[180px] md:w-[150px] md:h-[130px] xl:w-[250px] xl:h-[180px] text-white text-center">
           <h4>Wind Status</h4>
-          <div className="flex justify-center mt-2 items-center text-2xl">
+          <div className="flex justify-center mt-2 items-center text-2xl md:text-sm text-center ">
             <div
-              className="text-4xl font-bold relative"
+              className="text-4xl md:text-lg xl:text-4xl font-bold relative text-center"
               style={{ top: "-4px" }}
             >
               {windSpeed}
             </div>
-            <span>mph</span>
+            <span className="ml-[4px]">mph</span>
           </div>
           <div className="flex justify-center mt-4 items-center">
             <img
@@ -76,18 +76,18 @@ const Details = ({ selectedCity }) => {
           </div>
         </div>
 
-        <div className="bg-[#1e213a] p-4 px-5 pb-6 w-[290px] md:w-[250px] h-[180px] md:h-[150px] text-white text-center">
+        <div className="bg-[#1e213a] p-4 px-5 pb-6w-[290px]  h-[180px] md:w-[150px] md:h-[130px] xl:w-[250px] xl:h-[180px]  text-white text-center">
           <h4>Humidity</h4>
           <div className="flex justify-center mt-2 items-center text-2xl">
             <div
-              className="text-4xl font-bold relative"
+              className="text-4xl md:text-xl xl:text-4xl font-bold relative"
               style={{ top: "-4px" }}
             >
               {humidity}
             </div>
             <span>%</span>
           </div>
-          <div className="flex justify-between mt-4">
+          <div className="flex justify-between mt-4 md:mt-[4px] xl:mt-4 ">
             <span>0</span>
             <span>50</span>
             <span>100</span>
@@ -100,11 +100,11 @@ const Details = ({ selectedCity }) => {
           </div>
         </div>
 
-        <div className="bg-[#1e213a] p-4 px-5 pb-8 w-[290px] md:w-[250px] h-[140px] md:h-[120px] text-white text-center">
+        <div className="bg-[#1e213a] p-4 px-5 pb-8w-[290px]  h-[180px] md:w-[150px] md:h-[130px] xl:w-[250px] xl:h-[180px]  text-white text-center">
           <h4>Visibility</h4>
-          <div className="flex justify-center mt-2 items-center text-2xl">
+          <div className="flex justify-center mt-2 items-center text-2xl md:text-lg ld:text-2xl">
             <div
-              className="text-4xl font-bold relative"
+              className="text-4xl md:text-3xl ld:text-4xl font-bold relative"
               style={{ top: "-4px" }}
             >
               {visibility}
@@ -113,11 +113,11 @@ const Details = ({ selectedCity }) => {
           </div>
         </div>
 
-        <div className="bg-[#1e213a] p-4 px-5 pb-8  w-[290px] md:w-[250px] h-[140px] md:h-[120px] text-white text-center ">
+        <div className="bg-[#1e213a] p-4 px-5 pb-8  w-[290px]  h-[180px] md:w-[150px] md:h-[130px] xl:w-[250px] xl:h-[180px]  text-white text-center ">
           <h4>Air Pressure</h4>
-          <div className="flex justify-center mt-2 items-center text-2xl">
+          <div className="flex justify-center mt-2 items-center text-2xl  md:text-lg ld:text-2xl">
             <div
-              className="text-4xl font-bold relative"
+              className="text-4xl md:text-3xl ld:text-4xl font-bold relative"
               style={{ top: "-4px" }}
             >
               {pressure}
